@@ -326,8 +326,8 @@ var init = function(id){
     });
 }
 
-var static_init =function(ret){
-    chart = new Chart(ret.data.type, ret.data.node, ret.data.metas)
+var static_init =function(data){
+    chart = new Chart(data.type, data.node, data.metas)
 }
 
 $("[data-toggle='tooltip']").tooltip();
