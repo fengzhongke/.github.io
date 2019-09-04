@@ -327,9 +327,10 @@ var init = function(id){
 }
 
 var static_init =function(url){
-    var d = $.getJSON(url);
-    var data = JSON.parse(d.responseText);
-    chart = new Chart(data.type, data.node, data.metas);
+    var d = $.get(url, function(str){
+        var data = JSON.parse(str.trim());
+        chart = new Chart(data.type, data.node, data.metas);
+    });
 }
 
 $("[data-toggle='tooltip']").tooltip();
