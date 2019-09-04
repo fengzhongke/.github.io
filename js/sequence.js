@@ -327,11 +327,8 @@ var init = function(id){
 }
 
 var static_init =function(url){
-    $.post(url, function(str){
-        var ret = JSON.parse(str);
-        if(ret.status){
-            chart = new Chart(ret.data.type, ret.data.node, ret.data.metas)
-        }
+    $.getJSON(url, function(data){
+        chart = new Chart(data.type, data.node, data.metas);
     });
 }
 
