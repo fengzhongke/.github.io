@@ -327,9 +327,9 @@ var init = function(id){
 }
 
 var static_init =function(url){
-    $.getJSON(url, function(data){
-        chart = new Chart(data.type, data.node, data.metas);
-    });
+    var d = $.getJSON(url);
+    var data = JSON.parse(d.responseText);
+    chart = new Chart(data.type, data.node, data.metas);
 }
 
 $("[data-toggle='tooltip']").tooltip();
