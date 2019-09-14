@@ -328,7 +328,8 @@ var init = function(id){
 
 var static_init =function(url){
     var d = $.get(url, function(str){
-        var data = JSON.parse(str.trim());
+        //pako.ungzip(atob(btoa(pako.gzip(t, { to: 'string' }))), { to: 'string' });
+        var data = JSON.parse(pako.ungzip(atob(str), { to: 'string' }).trim());
         chart = new Chart(data.type, data.node, data.metas);
     });
 }
